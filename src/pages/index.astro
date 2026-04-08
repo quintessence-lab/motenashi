@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ItemCard from '../components/ItemCard.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const temiyageItems = (await getCollection('temiyage', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4);
+
+const restaurantItems = (await getCollection('restaurant', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4);
+---
+
+<BaseLayout title="ホーム">
+  <section class="hero">
+    <h1 class="hero-title">Motenashi</h1>
+    <p class="hero-subtitle">大切なシーンにふさわしい、手土産とレストランの案内</p>
+  </section>
+
+  {temiyageItems.length > 0 && (
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">手土産</h2>
+        <a href={`${base}temiyage/`} class="section-link">すべて見る &rarr;</a>
+      </div>
+      <div class="card-grid">
+        {temiyageItems.map(item => (
+          <ItemCard
+            title={item.data.title}
+            href={`${base}temiyage/${item.id}/`}
+            category={item.data.category}
+            tags={item.data.tags}
+            date={item.data.date}
+            excerpt={item.data.excerpt}
+            price={item.data.price}
+            area={item.data.area}
+            occasion={item.data.occasion}
+            image={item.data.image}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  {restaurantItems.length > 0 && (
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">レストラン</h2>
+        <a href={`${base}restaurant/`} class="section-link">すべて見る &rarr;</a>
+      </div>
+      <div class="card-grid">
+        {restaurantItems.map(item => (
+          <ItemCard
+            title={item.data.title}
+            href={`${base}restaurant/${item.id}/`}
+            category={item.data.category}
+            tags={item.data.tags}
+            date={item.data.date}
+            excerpt={item.data.excerpt}
+            price={item.data.price}
+            area={item.data.area}
+            occasion={item.data.occasion}
+            image={item.data.image}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 1rem 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.03em;
+  }
+
+  .section {
+    margin-bottom: 3rem;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-link {
+    font-size: 0.85rem;
+    color: var(--color-primary);
+  }
+
+  .section-link:hover {
+    color: var(--color-primary-hover);
+  }
+
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+  }
+</style>

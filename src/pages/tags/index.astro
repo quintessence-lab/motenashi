@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const temiyageItems = await getCollection('temiyage', ({ data }) => !data.draft);
+const restaurantItems = await getCollection('restaurant', ({ data }) => !data.draft);
+const allItems = [...temiyageItems, ...restaurantItems];
+
+const tagMap = new Map<string, number>();
+for (const item of allItems) {
+  for (const tag of item.data.tags) {
+    tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+  }
+}
+
+const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
+---
+
+<BaseLayout title="タグ一覧">
+  <h1>タグ一覧</h1>
+
+  <div class="tag-cloud">
+    {tags.map(([tag, count]) => (
+      <a href={`${base}tags/${tag}/`} class="tag-item">
+        <span class="tag-name">#{tag}</span>
+        <span class="tag-count">{count}</span>
+      </a>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .tag-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .tag-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+    color: var(--color-primary);
+  }
+
+  .tag-name {
+    font-size: 0.9rem;
+  }
+
+  .tag-count {
+    font-size: 0.75rem;
+    background-color: var(--color-tag-bg);
+    color: var(--color-tag-text);
+    padding: 0.1rem 0.4rem;
+    border-radius: var(--radius);
+  }
+</style>

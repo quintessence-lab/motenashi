@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+export async function getStaticPaths() {
+  const temiyageItems = await getCollection('temiyage');
+  const restaurantItems = await getCollection('restaurant');
+
+  const tagSet = new Set<string>();
+  for (const item of [...temiyageItems, ...restaurantItems]) {
+    for (const tag of item.data.tags) {
+      tagSet.add(tag);
+    }
+  }
+
+  return [...tagSet].map(tag => ({
+    params: { tag },
+    props: {
+      tag,
+      temiyageItems: temiyageItems.filter(i => i.data.tags.includes(tag)),
+      restaurantItems: restaurantItems.filter(i => i.data.tags.includes(tag)),
+    },
+  }));
+}
+
+const { tag, temiyageItems, restaurantItems } = Astro.props;
+
+const allItems = [
+  ...temiyageItems.map((i: any) => ({ ...i, type: 'temiyage' as const })),
+  ...restaurantItems.map((i: any) => ({ ...i, type: 'restaurant' as const })),
+].sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title={`#${tag}`}>
+  <h1>#{tag}</h1>
+  <p class="result-count">{allItems.length}件</p>
+
+  <div class="card-grid">
+    {allItems.map(item => (
+      <ItemCard
+        title={item.data.title}
+        href={`${base}${item.type}/${item.id}/`}
+        category={item.data.category}
+        tags={item.data.tags}
+        date={item.data.date}
+        excerpt={item.data.excerpt}
+        price={item.data.price}
+        area={item.data.area}
+        occasion={item.data.occasion}
+        image={item.data.image}
+      />
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  h1 {
+    margin-bottom: 0.25rem;
+  }
+  .result-count {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+</style>

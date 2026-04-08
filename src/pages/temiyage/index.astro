@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ItemCard from '../../components/ItemCard.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const items = (await getCollection('temiyage', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="手土産一覧">
+  <h1>手土産</h1>
+  <p class="page-description">ビジネスシーンやご挨拶にふさわしい手土産をご紹介します。</p>
+
+  {items.length > 0 ? (
+    <div class="card-grid">
+      {items.map(item => (
+        <ItemCard
+          title={item.data.title}
+          href={`${base}temiyage/${item.id}/`}
+          category={item.data.category}
+          tags={item.data.tags}
+          date={item.data.date}
+          excerpt={item.data.excerpt}
+          price={item.data.price}
+          area={item.data.area}
+          occasion={item.data.occasion}
+          image={item.data.image}
+        />
+      ))}
+    </div>
+  ) : (
+    <p class="empty">まだ記事がありません。</p>
+  )}
+</BaseLayout>
+
+<style>
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+  .page-description {
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+  }
+  .empty {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding: 3rem;
+  }
+</style>

@@ -1,0 +1,35 @@
+---
+import ItemLayout from '../../layouts/ItemLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+export async function getStaticPaths() {
+  const items = await getCollection('temiyage');
+  return items.map(item => ({
+    params: { id: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+---
+
+<ItemLayout
+  title={item.data.title}
+  date={item.data.date}
+  updatedDate={item.data.updatedDate}
+  category={item.data.category}
+  tags={item.data.tags}
+  shopName={item.data.shopName}
+  price={item.data.price}
+  area={item.data.area}
+  occasion={item.data.occasion}
+  shopUrl={item.data.shopUrl}
+  image={item.data.image}
+  collectionLabel="手土産"
+  collectionHref={`${base}temiyage/`}
+>
+  <Content />
+</ItemLayout>
