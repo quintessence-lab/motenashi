@@ -10,6 +10,7 @@ occasion: "カジュアル・ご挨拶"
 shopName: "パティスリー GIN NO MORI"
 address: "東京都千代田区丸の内1-9-1 東京駅構内グランスタ東京 銀の鈴エリア"
 shopUrl: "https://www.gransta.jp/mall/gransta_tokyo/patisserie_ginnomori/"
+image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/d3e41397-02b9-421e-95f2-0768fc61e335"
 ---
 
 ## おすすめポイント
