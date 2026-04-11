@@ -12,6 +12,10 @@ reservation: "要予約"
 shopName: "創作焼き鳥 秀"
 address: "東京都中央区日本橋箱崎町17-8 ノーベルコート箱崎3F"
 shopUrl: "https://yakitorishu.com/"
+image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/cba91160-5d6b-4ee2-af7d-b21fe18a0db8"
+images:
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/cba91160-5d6b-4ee2-af7d-b21fe18a0db8"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/60d61741-79ba-410b-b406-b1c2714c00cb"
 ---
 
 ## おすすめポイント
