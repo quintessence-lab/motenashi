@@ -12,6 +12,7 @@ reservation: "要予約"
 shopName: "生粋 by YORONIKU"
 address: "東京都千代田区外神田6-14-7 2F"
 shopUrl: "https://restaurant.ikyu.com/123873"
+image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/dcaf58d2-c06e-4540-a6e0-c449fd5dbaf4"
 ---
 
 ## おすすめポイント
