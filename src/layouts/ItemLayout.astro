@@ -179,12 +179,12 @@ const infoItems = [
     margin-bottom: 2rem;
     border-radius: var(--radius);
     overflow: hidden;
-    max-height: 400px;
+    background-color: var(--color-bg);
   }
   .hero-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-height: 400px;
+    object-fit: contain;
   }
 
   .hero-image.gallery {
@@ -202,7 +202,7 @@ const infoItems = [
     left: 0;
     width: 100%;
     height: 400px;
-    object-fit: cover;
+    object-fit: contain;
     opacity: 0;
     transition: opacity 0.6s ease;
   }
