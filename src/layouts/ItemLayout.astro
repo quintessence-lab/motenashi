@@ -58,12 +58,9 @@ const infoItems = [
       {galleryImages.length === 1 ? (
         <img src={galleryImages[0]} alt={title} />
       ) : (
-        <div class="gallery-track" style={`--gallery-duration: ${galleryImages.length * 5}s;`}>
+        <div class="gallery-fade" id="gallery">
           {galleryImages.map((src, i) => (
-            <img src={src} alt={`${title} ${i + 1}`} />
-          ))}
-          {galleryImages.map((src, i) => (
-            <img src={src} alt={`${title} ${i + 1}`} aria-hidden="true" />
+            <img src={src} alt={`${title} ${i + 1}`} class={i === 0 ? 'active' : ''} />
           ))}
         </div>
       )}
@@ -125,6 +122,21 @@ const infoItems = [
       </div>
     )}
   </article>
+
+  <script>
+    const gallery = document.getElementById('gallery');
+    if (gallery) {
+      const imgs = gallery.querySelectorAll('img');
+      if (imgs.length > 1) {
+        let current = 0;
+        setInterval(() => {
+          imgs[current].classList.remove('active');
+          current = (current + 1) % imgs.length;
+          imgs[current].classList.add('active');
+        }, 4000);
+      }
+    }
+  </script>
 </BaseLayout>
 
 <style>
@@ -151,24 +163,25 @@ const infoItems = [
 
   .hero-image.gallery {
     position: relative;
+    height: 400px;
   }
-  .gallery-track {
-    display: flex;
-    animation: gallery-scroll var(--gallery-duration) linear infinite;
+  .gallery-fade {
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
-  .gallery-track img {
-    flex-shrink: 0;
+  .gallery-fade img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 400px;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
   }
-  .hero-image.gallery:hover .gallery-track {
-    animation-play-state: paused;
-  }
-
-  @keyframes gallery-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+  .gallery-fade img.active {
+    opacity: 1;
   }
 
   .item-header {
