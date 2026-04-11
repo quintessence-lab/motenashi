@@ -11,6 +11,7 @@ occasion: "接待・記念日"
 reservation: "要予約"
 shopName: "レストラン ひらまつ 広尾"
 address: "東京都渋谷区広尾"
+image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/samples/food/pot-mussels"
 ---
 
 ## おすすめポイント

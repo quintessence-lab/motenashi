@@ -9,6 +9,7 @@ area: "東京・赤坂"
 occasion: "接待・ご挨拶"
 shopName: "虎屋"
 shopUrl: "https://www.toraya-group.co.jp/"
+image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/samples/cup-on-a-table"
 ---
 
 ## おすすめポイント

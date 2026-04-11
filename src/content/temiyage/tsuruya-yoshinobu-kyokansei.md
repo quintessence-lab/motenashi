@@ -9,6 +9,7 @@ area: "京都・西陣"
 occasion: "フォーマル・ご挨拶"
 shopName: "鶴屋吉信"
 shopUrl: "https://www.tsuruyayoshinobu.jp/"
+image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/samples/dessert-on-a-plate"
 ---
 
 ## おすすめポイント

@@ -11,6 +11,7 @@ occasion: "接待"
 reservation: "要予約"
 shopName: "銀座 小十"
 address: "東京都中央区銀座"
+image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/samples/food/fish-vegetables"
 ---
 
 ## おすすめポイント
