@@ -12,6 +12,11 @@ reservation: "要予約"
 shopName: "館 中俣酒造"
 address: "東京都中央区八丁堀2-18-2"
 shopUrl: "https://nakamata-nodoguro.com/yakata/"
+image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/af1bd013-ff08-4c5d-be88-020cac6077dc"
+images:
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/af1bd013-ff08-4c5d-be88-020cac6077dc"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/294a7cd3-f88f-4f24-9323-49dda6f2576f"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/d972fcd6-df1d-4b13-ae44-80f9ae30acd3"
 ---
 
 ## おすすめポイント
