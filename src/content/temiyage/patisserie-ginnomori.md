@@ -14,6 +14,7 @@ image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/d3
 images:
   - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/d3e41397-02b9-421e-95f2-0768fc61e335"
   - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/c6503a24-35b5-4814-8d5f-5f74261495ce"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/a_-90,w_800,q_auto,f_auto/IMG_3897_idl5cz"
 ---
 
 ## おすすめポイント
