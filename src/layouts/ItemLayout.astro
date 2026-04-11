@@ -62,6 +62,11 @@ const infoItems = [
           {galleryImages.map((src, i) => (
             <img src={src} alt={`${title} ${i + 1}`} class={i === 0 ? 'active' : ''} />
           ))}
+          <div class="gallery-dots">
+            {galleryImages.map((_, i) => (
+              <button class={`gallery-dot ${i === 0 ? 'active' : ''}`} data-index={i} aria-label={`写真 ${i + 1}`} />
+            ))}
+          </div>
         </div>
       )}
     </div>
@@ -127,13 +132,34 @@ const infoItems = [
     const gallery = document.getElementById('gallery');
     if (gallery) {
       const imgs = gallery.querySelectorAll('img');
+      const dots = gallery.querySelectorAll('.gallery-dot');
       if (imgs.length > 1) {
         let current = 0;
-        setInterval(() => {
+        let timer: ReturnType<typeof setInterval>;
+
+        function goTo(index: number) {
           imgs[current].classList.remove('active');
-          current = (current + 1) % imgs.length;
+          dots[current].classList.remove('active');
+          current = index;
           imgs[current].classList.add('active');
-        }, 4000);
+          dots[current].classList.add('active');
+        }
+
+        function startAuto() {
+          timer = setInterval(() => {
+            goTo((current + 1) % imgs.length);
+          }, 4000);
+        }
+
+        dots.forEach((dot) => {
+          dot.addEventListener('click', () => {
+            clearInterval(timer);
+            goTo(Number((dot as HTMLElement).dataset.index));
+            startAuto();
+          });
+        });
+
+        startAuto();
       }
     }
   </script>
@@ -182,6 +208,31 @@ const infoItems = [
   }
   .gallery-fade img.active {
     opacity: 1;
+  }
+  .gallery-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+  }
+  .gallery-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s;
+  }
+  .gallery-dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .gallery-dot.active {
+    background: rgba(255, 255, 255, 0.95);
   }
 
   .item-header {
