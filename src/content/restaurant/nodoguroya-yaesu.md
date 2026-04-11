@@ -12,11 +12,11 @@ reservation: "要予約"
 shopName: "のど黒屋 八重洲店"
 address: "東京都中央区日本橋3-4-1 第二弥生ビル4F"
 shopUrl: "https://g243667.gorp.jp/"
-image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/IMG_3729_lnz20j"
+image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/a_90,w_800,q_auto,f_auto/IMG_3729_lnz20j"
 images:
-  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/IMG_3729_lnz20j"
-  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/IMG_3730_d8mwyb"
-  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/IMG_3732_tbwb58"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/a_90,w_800,q_auto,f_auto/IMG_3729_lnz20j"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/a_90,w_800,q_auto,f_auto/IMG_3730_d8mwyb"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/a_90,w_800,q_auto,f_auto/IMG_3732_tbwb58"
 ---
 
 ## おすすめポイント
