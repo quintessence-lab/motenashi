@@ -13,6 +13,9 @@ shopName: "銀座 焼～yaki～ 新潟屋"
 address: "東京都中央区銀座7-10-8 第五太陽ビル 301"
 shopUrl: "https://restaurant.ikyu.com/124324"
 image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/c89eb571-8b15-4320-b044-272bba82a744"
+images:
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/c89eb571-8b15-4320-b044-272bba82a744"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/39aea4ea-e0ef-44ba-bc6e-896a379746b9"
 ---
 
 ## おすすめポイント
