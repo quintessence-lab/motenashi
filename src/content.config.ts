@@ -16,8 +16,10 @@ const temiyage = defineCollection({
     area: z.string().optional(),
     occasion: z.string().optional(),
     shopName: z.string().optional(),
+    address: z.string().optional(),
     shopUrl: z.string().optional(),
     image: z.string().optional(),
+    images: z.array(z.string()).optional(),
   }),
 });
 
@@ -40,6 +42,7 @@ const restaurant = defineCollection({
     address: z.string().optional(),
     shopUrl: z.string().optional(),
     image: z.string().optional(),
+    images: z.array(z.string()).optional(),
   }),
 });
 
