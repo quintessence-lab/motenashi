@@ -1,0 +1,39 @@
+---
+import ItemLayout from '../../layouts/ItemLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+export async function getStaticPaths() {
+  const items = await getCollection('utsuwa');
+  return items.map(item => ({
+    params: { id: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+---
+
+<ItemLayout
+  title={item.data.title}
+  date={item.data.date}
+  updatedDate={item.data.updatedDate}
+  category={item.data.category}
+  tags={item.data.tags}
+  shopName={item.data.shopName}
+  price={item.data.price}
+  occasion={item.data.occasion}
+  material={item.data.material}
+  origin={item.data.origin}
+  maker={item.data.maker}
+  pairing={item.data.pairing}
+  shopUrl={item.data.shopUrl}
+  image={item.data.image}
+  images={item.data.images}
+  collectionLabel="器"
+  collectionHref={`${base}utsuwa/`}
+>
+  <Content />
+</ItemLayout>

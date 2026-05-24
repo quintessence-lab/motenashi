@@ -12,6 +12,10 @@ const temiyageItems = (await getCollection('temiyage', ({ data }) => !data.draft
 const restaurantItems = (await getCollection('restaurant', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 4);
+
+const utsuwaItems = (await getCollection('utsuwa', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4);
 ---
 
 <BaseLayout title="ホーム">
@@ -62,6 +66,31 @@ const restaurantItems = (await getCollection('restaurant', ({ data }) => !data.d
             excerpt={item.data.excerpt}
             price={item.data.price}
             area={item.data.area}
+            occasion={item.data.occasion}
+            image={item.data.image}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  {utsuwaItems.length > 0 && (
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">器</h2>
+        <a href={`${base}utsuwa/`} class="section-link">すべて見る &rarr;</a>
+      </div>
+      <div class="card-grid">
+        {utsuwaItems.map(item => (
+          <ItemCard
+            title={item.data.title}
+            href={`${base}utsuwa/${item.id}/`}
+            category={item.data.category}
+            tags={item.data.tags}
+            date={item.data.date}
+            excerpt={item.data.excerpt}
+            price={item.data.price}
+            area={item.data.origin}
             occasion={item.data.occasion}
             image={item.data.image}
           />

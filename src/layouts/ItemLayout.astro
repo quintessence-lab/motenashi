@@ -13,6 +13,10 @@ interface Props {
   occasion?: string;
   cuisine?: string;
   reservation?: string;
+  material?: string;
+  origin?: string;
+  maker?: string;
+  pairing?: string;
   address?: string;
   shopUrl?: string;
   image?: string;
@@ -23,7 +27,9 @@ interface Props {
 
 const {
   title, date, updatedDate, category, tags,
-  shopName, price, area, occasion, cuisine, reservation, address, shopUrl, image, images,
+  shopName, price, area, occasion, cuisine, reservation,
+  material, origin, maker, pairing,
+  address, shopUrl, image, images,
   collectionLabel, collectionHref,
 } = Astro.props;
 
@@ -41,6 +47,10 @@ const infoItems = [
   { label: '用途', value: occasion },
   { label: 'ジャンル', value: cuisine },
   { label: '予約', value: reservation },
+  { label: '素材', value: material },
+  { label: '産地', value: origin },
+  { label: '作家・窯元', value: maker },
+  { label: 'おすすめ料理', value: pairing },
 ].filter(item => item.value);
 ---
 
