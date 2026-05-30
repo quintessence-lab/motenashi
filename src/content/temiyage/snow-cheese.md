@@ -10,6 +10,10 @@ occasion: "帰省・出張土産・話題性のある手土産・ばらまき・
 shopName: "[SNOW]CHEESE（スノーチーズ）"
 address: "北海道札幌市中央区北5条西4丁目7 大丸札幌店 B1F ほっぺタウン 和洋菓子売場"
 shopUrl: "https://snowcheese.jp/"
+image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/e55a1c1d-bc0f-4f7b-a6b8-3a364de6d856"
+images:
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/e55a1c1d-bc0f-4f7b-a6b8-3a364de6d856"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/d962a97d-9126-4ce3-8abd-9d651f47c3dc"
 ---
 
 ## おすすめポイント
