@@ -12,6 +12,11 @@ reservation: "電話予約のみ（オンライン不可）"
 shopName: "王十里（おうじゅり）"
 address: "東京都中央区銀座4-8-11 善隣ビル 1F〜2F"
 shopUrl: "https://ohjuri.gorp.jp/"
+image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/95fc56a5-46a9-45a3-a37d-1fd7a1005a3b"
+images:
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/95fc56a5-46a9-45a3-a37d-1fd7a1005a3b"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/ad10527c-d191-48fc-8559-67de4c9d5fe1"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/7ebd254d-de8f-4a51-9f73-be092a3e1227"
 ---
 
 ## おすすめポイント
