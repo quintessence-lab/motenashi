@@ -12,6 +12,11 @@ reservation: "予約不可（食券制・先着順）"
 shopName: "AOI（エーオーアイ）"
 address: "東京都中央区銀座2-11-9 三和産工ビル1階"
 shopUrl: "https://www.aoi-hamburg.com/"
+image: "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/12162606-744f-4d6d-bf5d-afb798510f2d"
+images:
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/12162606-744f-4d6d-bf5d-afb798510f2d"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/7add5eda-4f56-4379-a3a9-dad699977324"
+  - "https://res.cloudinary.com/ddq7kdhvs/image/upload/w_800,q_auto,f_auto/b5db12d7-3b72-491d-96b0-4c7d8152a71b"
 ---
 
 > **この店は普段使い向けです。** 接待やかしこまったビジネス会食ではなく、食券機で食券を買って席に着く気取らないスタイル。一人ランチや仕事帰りの軽い夕食など、日常の一食にぴったりの一軒です。
